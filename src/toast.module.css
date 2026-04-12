@@ -57,20 +57,3 @@
 .animate-in {
     animation: slideInRight 0.3s ease-out forwards;
 }
-
-@keyframes slideOutRight {
-    from {
-        opacity: 1;
-        transform: translateX(0);
-    }
-    to {
-        opacity: 0;
-        transform: translateX(100vw);
-    }
-}
-
-.animate-out {
-    animation: slideOutRight 0.3s ease-in forwards;
-}
-
-
