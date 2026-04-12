@@ -7,33 +7,76 @@ const toast = {
 };
 
 function createToast(message: string) {
+  // Search for the container and create if it doesn't exist.
   let container = document.querySelector(".just-toast-container");
   if (!Boolean(container)) {
     container = createContainer();
   }
+
+  // Create the toast element adding the classes
   const toast = document.createElement("output");
   toast.classList.add(classes["toast"]);
-  toast.setAttribute('role', 'status');
+  toast.setAttribute("role", "status");
 
+  // Add the message container for the toast
   const toastMessage = document.createElement("p");
   toastMessage.classList.add(classes["toast-message"]);
   toastMessage.textContent = message;
+  toast.appendChild(toastMessage);
 
+  // Add the close button for the toast
   const toastCloseButton = document.createElement("button");
   const closeIcon = createCloseIcon();
   toastCloseButton.appendChild(closeIcon);
   toastCloseButton.classList.add(classes["toast-cancel-button"]);
-
-  toast.appendChild(toastMessage);
   toast.appendChild(toastCloseButton);
 
-  container?.appendChild(toast);
+  // Append the toast to the container and set a timeout to remove it after 2 seconds
+  container?.insertBefore(toast, container?.firstChild);
+  toast.classList.add(classes["animate-in"]);
+
+  // Define a variable to hold timeout ID and clear it in the animation event listener
+  let timeoutId: number | null = null;
+  timeoutId = setTimeout(async () => {
+    await removeToast(toast);
+    if (timeoutId) {
+      clearTimeout(timeoutId);
+    }
+    timeoutId = null;
+  }, 4000);
+}
+
+function removeToast(toast: HTMLElement) {
+  const container = document.querySelector(".just-toast-container");
+  toast.animate(
+    [
+      {
+        opacity: 1,
+        transform: "translateX(0vw)",
+      },
+      {
+        opacity: 0,
+        transform: "translateX(100vw)",
+      },
+    ],
+    {
+      duration: 150,
+      easing: "ease-out",
+    },
+  );
+  return new Promise<void>(async (resolve) => {
+    await Promise.allSettled(
+      toast.getAnimations().map((animation) => animation.finished),
+    );
+    container?.removeChild(toast);
+    resolve();
+  });
 }
 
 function createContainer() {
   const container = document.createElement("section");
-  container.classList.add('just-toast-container', classes["toast-container"]);
-  document.firstElementChild?.insertBefore(container, document.body);
+  container.classList.add("just-toast-container", classes["toast-container"]);
+  document.body.insertBefore(container, document.body.firstChild);
   return container;
 }
 
