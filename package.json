@@ -1,8 +1,24 @@
 {
   "name": "just-toast",
-  "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
   "type": "module",
+  "description": "A simple toast notification library for web apps",
+  "author": "Abajit abajitdey@zohomail.in",
+  "license": "MIT",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "main": "./dist/just-toast.umd.cjs",
+  "module": "./dist/just-toast.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/just-toast.js",
+      "require": "./dist/just-toast.umd.cjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -10,6 +26,11 @@
   },
   "devDependencies": {
     "typescript": "~6.0.2",
-    "vite": "^8.0.4"
+    "vite": "^8.0.4",
+    "vite-plugin-css-injected-by-js": "^5.0.0"
+  },
+  "dependencies": {
+    "@types/node": "^25.6.0",
+    "vite-plugin-dts": "^4.5.4"
   }
 }
