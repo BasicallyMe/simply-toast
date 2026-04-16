@@ -9,8 +9,8 @@ export default defineConfig({
         cssCodeSplit: false,
         lib: {
             entry: resolve(import.meta.dirname, 'src/index.ts'),
-            name: 'justtoast',
-            fileName: 'just-toast',
+            name: 'simplytoast',
+            fileName: 'simply-toast',
         },
     }
 })

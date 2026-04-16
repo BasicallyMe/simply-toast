@@ -24,12 +24,12 @@ function createNewToast(message: string, type: "success" | "error") {
 }
 
 function createContainer() {
-  if (document.querySelector(".just-toast-container")) {
-    const container = document.querySelector(".just-toast-container");
+  if (document.querySelector(".simply-toast-container")) {
+    const container = document.querySelector(".simply-toast-container");
     return container;
   }
   const container = document.createElement("section");
-  container.classList.add("just-toast-container", classes["toast-container"]);
+  container.classList.add("simply-toast-container", classes["toast-container"]);
   document.body.insertBefore(container, document.body.firstChild);
   return container;
 }
@@ -78,7 +78,7 @@ function createToast(
 }
 
 function removeToast(toast: HTMLElement) {
-  const container = document.querySelector(".just-toast-container");
+  const container = document.querySelector(".simply-toast-container");
   toast.animate(
     [
       {

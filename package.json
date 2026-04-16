@@ -1,5 +1,5 @@
 {
-  "name": "just-toast",
+  "name": "simply-toast",
   "version": "0.1.0",
   "type": "module",
   "description": "A simple toast notification library for web apps",
@@ -9,13 +9,13 @@
     "dist",
     "README.md"
   ],
-  "main": "./dist/just-toast.umd.cjs",
-  "module": "./dist/just-toast.js",
+  "main": "./dist/simply-toast.umd.cjs",
+  "module": "./dist/simply-toast.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/just-toast.js",
-      "require": "./dist/just-toast.umd.cjs",
+      "import": "./dist/simply-toast.js",
+      "require": "./dist/simply-toast.umd.cjs",
       "types": "./dist/index.d.ts"
     }
   },
