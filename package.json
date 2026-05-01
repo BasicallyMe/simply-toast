@@ -1,6 +1,6 @@
 {
   "name": "simply-toast",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "module",
   "description": "A simple toast notification library for web apps",
   "author": "Abajit abajitdey@zohomail.in",
