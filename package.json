@@ -23,6 +23,15 @@
       "types": "./dist/index.d.ts"
     }
   },
+  "keywords": [
+    "javascript",
+    "toast",
+    "notifications",
+    "component",
+    "simply-toast",
+    "toast-ui",
+    "toast ui"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
