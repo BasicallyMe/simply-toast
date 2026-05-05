@@ -9,6 +9,10 @@
     "dist",
     "README.md"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BasicallyMe/simply-toast.git"
+  },
   "main": "./dist/simply-toast.umd.cjs",
   "module": "./dist/simply-toast.js",
   "types": "./dist/index.d.ts",
